@@ -24,7 +24,7 @@ async function getNames(numberOfPlayers) {
         if (confirm) {
             players.push({
                 name: playerName,
-                frames:Array(10).fill(null).map(() => ({ rolls: [], score: 0})),
+                frames:Array(10).fill(null).map(() => ({ lancers: [], score: 0})),
                 totalScore: 0
             });
             break;

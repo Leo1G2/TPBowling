@@ -23,7 +23,7 @@ async function game(players) {
 
             ]);
             player.frames[i].lancers.push(premierLancer);
-            if (firstRoll <10) {
+            if (premierLancer <10) {
                 const quillesRestantes= 10-premierLancer;
                 const { deuxiemeLancer} = await inquirer.prompt([
                     {
@@ -40,7 +40,7 @@ async function game(players) {
                         filter: Number
                     }
                 ]);
-                player.frames[i].lancers.push(deuuxiemeLancer);
+                player.frames[i].lancers.push(deuxiemeLancer);
             }
             }
     }
