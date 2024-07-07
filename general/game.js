@@ -27,11 +27,11 @@ async function game(players) {
                 const quillesRestantes= 10-premierLancer;
                 const { deuxiemeLancer} = await inquirer.prompt([
                     {
-                        type: 'inpu',
+                        type: 'input',
                         name: 'deuxiemeLancer',
                         message: 'Combien de quilles au deuxieme lancer',
                         validate: function(value) {
-                            const valid = !isNaN(value) && value >=0 && value < quillesRestantes; 
+                            const valid = !isNaN(value) && value >=0 && value <= quillesRestantes; 
                             if (valid) {
                                 return true;
                             }

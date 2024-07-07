@@ -2,7 +2,7 @@ import console from 'console' ;
 import { getNumberOfPlayers } from './getNumberOfPlayers.js';
 import { getNames } from './getNames.js';
 import { game } from './game.js';
-
+import { calculScore } from './calculScore.js';
 
 
 async function main() {
