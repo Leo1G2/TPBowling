@@ -1,9 +1,11 @@
 import console from 'console';
 import inquirer from 'inquirer';
+import { afficherResultats } from './afficherResultats.js';
+
 
 async function game(players) {
-    for (let i = 0; i < 10; i++) {
-        console.log('Lancer' +(i+1)+'');
+    for (let i = 0; i < 2; i++) {
+        console.log('Lancer ' +(i+1)+'');
         for (const player of players) {
             console.log('C est au tour de ' +(player.name)+':');
             const { premierLancer } = await inquirer.prompt ([
@@ -42,7 +44,20 @@ async function game(players) {
                 ]);
                 player.frames[i].lancers.push(deuxiemeLancer);
             }
+            let totalScore =0;
+
+            for (let j = 0; j <= i; j ++ ) {
+                let frame = player.frames[j];
+
+                for (let k = 0; k < frame.lancers.length; k++) {
+                    totalScore += frame.lancers[k];
+                
+                }
             }
+                player.totalScore = totalScore;
+        
+        }
+        afficherResultats(players);
     }
 }
 export {game};
