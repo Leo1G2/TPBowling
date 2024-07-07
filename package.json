@@ -1,0 +1,16 @@
+{
+  "name": "tpbowlingcli",
+  "version": "1.0.0",
+  "main": "general/main.js",
+  "description": "Une application CLI pour calculer le score d'une partie de bowling",
+  "type": "module",
+  "scripts": {
+    "start": "node general/main.js"
+  },
+  "keywords": [],
+  "author": "Leo GRUEL",
+  "license": "ISC",
+  "dependencies": {
+    "inquirer": "^9.0.0"
+  }
+}
