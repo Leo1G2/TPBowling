@@ -1,6 +1,6 @@
 import console from 'console';
 
-function printScore(players) {
+function printCurrentScore(players) {
     console.log('Score des joueurs')
     
     for (let j=0; j < players.length; j++) {
@@ -21,6 +21,6 @@ function printScore(players) {
       
         
     }    
-    console.log(' Le gagnant est ' + players[winner].name + ' ,son score est de :' + highestScore);
+    console.log('');
 }
-export { printScore }
+export { printCurrentScore }

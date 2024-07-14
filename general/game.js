@@ -1,6 +1,7 @@
 import console from 'console';
 import inquirer from 'inquirer';
 import { printScore} from './printScore.js';
+import { printCurrentScore } from './printCurrentScore.js'
 
 
 async function game(players) {
@@ -57,7 +58,7 @@ async function game(players) {
                 player.totalScore = totalScore;
         
         }
-        
+        printCurrentScore(players);
     }
     printScore(players);
 }
