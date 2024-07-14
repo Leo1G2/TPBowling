@@ -26,7 +26,7 @@ Ceci est une application en ligne de commande simple pour calculer les scores de
 
 3. Pour chaque joueur, saisissez le nombre de quilles renversées à chaque lancer.
 
-4. Après chaque frame, les scores actuels seront affichés, avec le gagnant en cours.
+4. Après chaque frame, les scores actuels seront affichés.
 
 5. À la fin de la partie, les scores finaux et le gagnant seront affichés.
 
