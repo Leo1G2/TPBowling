@@ -1,6 +1,6 @@
 import console from 'console';
 import inquirer from 'inquirer';
-import { afficherResultats } from './afficherResultats.js';
+import { printScore} from './printScore.js';
 
 
 async function game(players) {
@@ -8,10 +8,10 @@ async function game(players) {
         console.log('Lancer ' +(i+1)+'');
         for (const player of players) {
             console.log('C est au tour de ' +(player.name)+':');
-            const { premierLancer } = await inquirer.prompt ([
+            const { firstShot } = await inquirer.prompt ([
                 {
                 type: 'input',
-                name: 'premierLancer',
+                name: 'firstShot',
                 message: ' Combien de quilles au premier lancer',
                 validate: function(value) {
                     const valid = !isNaN(value) && value >= 0 && value <= 10;
@@ -24,16 +24,16 @@ async function game(players) {
                 }
 
             ]);
-            player.frames[i].lancers.push(premierLancer);
-            if (premierLancer <10) {
-                const quillesRestantes= 10-premierLancer;
-                const { deuxiemeLancer} = await inquirer.prompt([
+            player.frames[i].shots.push(firstShot);
+            if (firstShot <10) {
+                const leftPins= 10-firstShot;
+                const { secondShot} = await inquirer.prompt([
                     {
                         type: 'input',
-                        name: 'deuxiemeLancer',
+                        name: 'secondShot',
                         message: 'Combien de quilles au deuxieme lancer',
                         validate: function(value) {
-                            const valid = !isNaN(value) && value >=0 && value <= quillesRestantes; 
+                            const valid = !isNaN(value) && value >=0 && value <= leftPins; 
                             if (valid) {
                                 return true;
                             }
@@ -42,22 +42,22 @@ async function game(players) {
                         filter: Number
                     }
                 ]);
-                player.frames[i].lancers.push(deuxiemeLancer);
+                player.frames[i].shots.push(secondShot);
             }
             let totalScore =0;
 
             for (let j = 0; j <= i; j ++ ) {
                 let frame = player.frames[j];
 
-                for (let k = 0; k < frame.lancers.length; k++) {
-                    totalScore += frame.lancers[k];
+                for (let k = 0; k < frame.shots.length; k++) {
+                    totalScore += frame.shots[k];
                 
                 }
             }
                 player.totalScore = totalScore;
         
         }
-        afficherResultats(players);
+        printScore(players);
     }
 }
 export {game};
