@@ -4,7 +4,7 @@ import { printScore} from './printScore.js';
 
 
 async function game(players) {
-    for (let i = 0; i < 2; i++) {
+    for (let i = 0; i < 10; i++) {
         console.log('Lancer ' +(i+1)+'');
         for (const player of players) {
             console.log('C est au tour de ' +(player.name)+':');
@@ -57,7 +57,8 @@ async function game(players) {
                 player.totalScore = totalScore;
         
         }
-        printScore(players);
+        
     }
+    printScore(players);
 }
 export {game};
